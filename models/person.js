@@ -11,8 +11,26 @@ mongoose.set("strictQuery", false);
 mongoose.connect(url);
 
 const personSchema = new mongoose.Schema({
-  name: String,
-  number: String,
+  name: {
+    type: String,
+    minlength: 3,
+    required: true,
+  },
+  number: {
+    type: String,
+    minlength: 8,
+    validate: {
+      validator: function (v) {
+        return /^\d{2,3}-\d+$/.test(v);
+      },
+      message: (
+        props,
+      ) => `${props.value} is not a valid phone number! Puhelinnumeron täytyy olla 
+      vähintään 8 merkkiä pitkä ja koostua kahdesta väliviivalla erotetusta osasta 
+      joissa ensimmäisessä osassa on 2 tai 3 numeroa ja toisessa osassa 
+      riittävä määrä numeroita`,
+    },
+  },
   id: String,
 });
 

@@ -12,9 +12,19 @@ GET http://localhost:3001/api/persons
 
 ###
 
-GET http://localhost:3001/api/persons/66533c8b4464dc9506893985
+GET http://localhost:3001/api/persons/6658c037f985df03734d9e2f
 
 
 ###
 
-DELETE http://localhost:3001/api/persons/65eb68386d8d4782b2b69d66
+DELETE http://localhost:3001/api/persons/6658c2b3f985df03734d9e6a
+
+###
+
+PUT http://localhost:3001/api/persons/6658c175f985df03734d9e4c
+Content-Type: application/json
+
+{
+    "name": "asd",
+    "number": "124-34567456456"
+}
